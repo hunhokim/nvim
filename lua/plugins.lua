@@ -38,4 +38,6 @@ use 'dense-analysis/ale'
 
 use 'preservim/nerdcommenter'
 
+use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
 end)
