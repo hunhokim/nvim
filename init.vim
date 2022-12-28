@@ -28,19 +28,29 @@ filetype plugin on
 " Vim-plug
 call plug#begin()
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-vsnip'
+  Plug 'hrsh7th/vim-vsnip'
 call plug#end()
+
+" nvim-cmp
+set completeopt=menu,menuone,noselect
 
 " Lua plugins
 lua << EOF
   require'plugins'
+  require'nvim-cmp'
 
   require'nvim-tree'.setup {
   }
-
   require('lualine').setup()
 
   require'nvim-treesitter.configs'.setup {
-    ensure_installed = { "c", "lua", "python" },
+    ensure_installed = { "c", "lua", "python", "vim" },
     sync_install = false,
     ignore_install = { "javascript" },
     highlight = {
