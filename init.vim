@@ -25,6 +25,12 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " nerdcommenter
 filetype plugin on
 
+" <Esc> to remove highlight
+nnoremap <Esc> :noh<CR>
+
+" Clipboard sharing on mac
+set clipboard=unnamedplus
+
 " Vim-plug
 call plug#begin()
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -34,9 +40,6 @@ call plug#begin()
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
 call plug#end()
-
-" nvim-cmp
-set completeopt=menu,menuone,noselect
 
 " Lua plugins
 lua << EOF
@@ -48,7 +51,7 @@ lua << EOF
   require('lualine').setup()
 
   require'nvim-treesitter.configs'.setup {
-    ensure_installed = { "c", "lua", "python", "vim" },
+    ensure_installed = { "c", "lua", "python", "vim", "go" },
     sync_install = false,
     highlight = {
       enable = true,

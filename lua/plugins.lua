@@ -32,8 +32,6 @@ use {
     config = function() require("tabby").setup() end,
 }
 
-use 'dense-analysis/ale'
-
 use 'preservim/nerdcommenter'
 
 use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
