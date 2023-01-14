@@ -1,10 +1,11 @@
 colorscheme nightfox
 
 " Tab size
-set smartindent
 set tabstop=2
 set expandtab
 set shiftwidth=2
+
+autocmd Filetype go setlocal tabstop=4 shiftwidth=4
 
 " Line number
 set number
