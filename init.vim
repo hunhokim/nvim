@@ -11,6 +11,10 @@ autocmd Filetype go setlocal tabstop=4 shiftwidth=4
 set number
 set cursorline
 
+" map <Esc> to other keys
+imap jk <Esc>
+imap kj <Esc>
+
 " Nvim-tree
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
@@ -40,6 +44,8 @@ call plug#begin()
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
+
+  Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " Lua plugins
