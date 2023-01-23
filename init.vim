@@ -1,5 +1,8 @@
 colorscheme nightfox
 
+" User command to open the configuration file
+:command NeovimConfig edit ~/.config/nvim/init.vim
+
 " Tab size
 set tabstop=2
 set expandtab
@@ -13,7 +16,6 @@ set cursorline
 
 " map <Esc> to other keys
 imap jk <Esc>
-imap kj <Esc>
 
 " Nvim-tree
 nnoremap <C-n> :NvimTreeToggle<CR>
@@ -54,11 +56,15 @@ lua << EOF
   require'nvim-cmp'
 
   require'nvim-tree'.setup {
+    update_focused_file = {
+      enable = true,
+      update_cwd = true,
+    },
   }
   require('lualine').setup()
 
   require'nvim-treesitter.configs'.setup {
-    ensure_installed = { "c", "lua", "python", "vim", "go" },
+    ensure_installed = { "c", "lua", "python", "vim", "go", "javascript" },
     sync_install = false,
     highlight = {
       enable = true,
