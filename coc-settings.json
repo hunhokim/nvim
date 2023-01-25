@@ -1,5 +1,7 @@
 {
   "coc.preferences.extensionUpdateCheck": "daily",
+  "diagnostic.refreshOnInsertMode": true,
+
   "suggest.floatConfig": {
     "border": true,
     "rounded": true,

@@ -47,7 +47,7 @@ call plug#begin()
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
 
-  Plug 'jiangmiao/auto-pairs'
+  Plug 'windwp/nvim-autopairs'
 call plug#end()
 
 " Lua plugins
@@ -61,7 +61,8 @@ lua << EOF
       update_cwd = true,
     },
   }
-  require('lualine').setup()
+  require'lualine'.setup {}
+  require'nvim-autopairs'.setup {}
 
   require'nvim-treesitter.configs'.setup {
     ensure_installed = { "c", "lua", "python", "vim", "go", "javascript" },
