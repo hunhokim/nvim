@@ -1,7 +1,7 @@
 colorscheme nightfox
 
 " User command to open the configuration file
-:command NeovimConfig edit ~/.config/nvim/init.vim
+:command Neovimconfig edit ~/.config/nvim/init.vim
 
 " Tab size
 set tabstop=2
@@ -13,6 +13,7 @@ autocmd Filetype go setlocal tabstop=4 shiftwidth=4
 " Line number
 set number
 set cursorline
+set relativenumber
 
 " map <Esc> to other keys
 imap jk <Esc>
@@ -47,7 +48,7 @@ call plug#begin()
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
 
-  Plug 'windwp/nvim-autopairs'
+  Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " Lua plugins
@@ -56,13 +57,15 @@ lua << EOF
   require'nvim-cmp'
 
   require'nvim-tree'.setup {
+    git = {
+      enable = false,
+    },
     update_focused_file = {
       enable = true,
       update_cwd = true,
     },
   }
   require'lualine'.setup {}
-  require'nvim-autopairs'.setup {}
 
   require'nvim-treesitter.configs'.setup {
     ensure_installed = { "c", "lua", "python", "vim", "go", "javascript" },
