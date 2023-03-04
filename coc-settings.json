@@ -19,5 +19,11 @@
     "rounded": true,
     "winblend": 15,
     "borderhighlight": "FloatBorder"
+  },
+  "signature.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "winblend": 15,
+    "borderhighlight": "FloatBorder"
   }
 }
