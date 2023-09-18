@@ -32,6 +32,11 @@ use {
     config = function() require("tabby").setup() end,
 }
 
+use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+})
+
 use 'preservim/nerdcommenter'
 
 use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
