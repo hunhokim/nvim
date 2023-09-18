@@ -1,3 +1,4 @@
+vim.cmd [[
 colorscheme nightfox
 
 " User command to open the configuration file
@@ -51,31 +52,29 @@ call plug#begin()
   Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
-" Lua plugins
-lua << EOF
-  require'plugins'
-  require'nvim-cmp'
-
-  require'nvim-tree'.setup {
-    git = {
-      enable = false,
-    },
-    update_focused_file = {
-      enable = true,
-      update_cwd = true,
-    },
-  }
-  require'lualine'.setup {}
-
-  require'nvim-treesitter.configs'.setup {
-    ensure_installed = { "c", "lua", "python", "vim", "go", "javascript" },
-    sync_install = false,
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = false,
-    },
-  }
-EOF
-
 source ~/.config/nvim/vim/coc.vim
 source ~/.config/nvim/vim/coc-snippets.vim
+]]
+
+require 'plugins'
+require 'nvim-cmp'
+
+require 'nvim-tree'.setup {
+  git = {
+    enable = false,
+  },
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+  },
+}
+require 'lualine'.setup {}
+
+require 'nvim-treesitter.configs'.setup {
+  ensure_installed = { "c", "lua", "python", "vim", "go", "javascript", "java" },
+  sync_install = false,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
