@@ -2,7 +2,7 @@ vim.cmd [[
 colorscheme nightfox
 
 " User command to open the configuration file
-:command Neovimconfig edit ~/.config/nvim/init.vim
+:command Neovimconfig edit ~/.config/nvim/init.lua
 
 " Tab size
 set tabstop=2
