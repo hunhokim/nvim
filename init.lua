@@ -22,10 +22,13 @@ require("lazy").setup({
 	{
 		import = "plugins",
 		change_detection = {
-			enabled = false
-		}
-	}
+			notify = false,
+			enabled = false,
+		},
+	},
 })
 
 require("config.init")
 require("config.keymap")
+require("config.cmp-lspconfig")
+require("config.colorscheme")

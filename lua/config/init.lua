@@ -1,5 +1,3 @@
-vim.cmd.colorscheme "nightfox"
-
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
