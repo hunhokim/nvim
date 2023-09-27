@@ -1,11 +1,18 @@
 require("mason").setup({})
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "rust_analyzer" },
+	ensure_installed = { "lua_ls", "gopls" },
 })
 
 local cmp = require("cmp")
 local luasnip = require('luasnip')
 local select_opts = { behavior = cmp.SelectBehavior.Select }
+
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 
 cmp.setup({
 	snippet = {
@@ -153,3 +160,5 @@ require("lspconfig").lua_ls.setup({
 		return true
 	end,
 })
+
+require("lspconfig").gopls.setup{}
