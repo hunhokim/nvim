@@ -1,0 +1,31 @@
+{
+    "workspace.library": [
+        "/Users/funo/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/opt/homebrew/Cellar/neovim/0.9.2/share/nvim/runtime/lua",
+        "/Users/funo/.local/share/nvim/lazy/cmp-path/lua",
+        "/Users/funo/.local/share/nvim/lazy/mason-lspconfig.nvim/lua",
+        "/Users/funo/.local/share/nvim/lazy/lsp_signature.nvim/lua",
+        "/Users/funo/.local/share/nvim/lazy/feline.nvim/lua",
+        "/Users/funo/.local/share/nvim/lazy/cmp-cmdline/lua",
+        "/Users/funo/.local/share/nvim/lazy/lazy.nvim/lua",
+        "/Users/funo/.local/share/nvim/lazy/nvim-cmp/lua",
+        "/Users/funo/.local/share/nvim/lazy/nightfox.nvim/lua",
+        "/Users/funo/.local/share/nvim/lazy/telescope.nvim/lua",
+        "/Users/funo/.local/share/nvim/lazy/nvim-lspconfig/lua",
+        "/Users/funo/.local/share/nvim/lazy/LuaSnip/lua",
+        "/Users/funo/.local/share/nvim/lazy/nvim-autopairs/lua",
+        "/Users/funo/.local/share/nvim/lazy/plenary.nvim/lua",
+        "/Users/funo/.local/share/nvim/lazy/cmp-nvim-lsp/lua",
+        "/Users/funo/.local/share/nvim/lazy/cmp_luasnip/lua",
+        "/Users/funo/.local/share/nvim/lazy/nvim-tree.lua/lua",
+        "/Users/funo/.local/share/nvim/lazy/nvim-treesitter/lua",
+        "/Users/funo/.local/share/nvim/lazy/cmp-buffer/lua",
+        "/Users/funo/.local/share/nvim/lazy/neodev.nvim/lua",
+        "/Users/funo/.local/share/nvim/lazy/nvim-web-devicons/lua",
+        "/Users/funo/.local/share/nvim/lazy/mason.nvim/lua",
+        "/Users/funo/.local/share/nvim/lazy/gitsigns.nvim/lua",
+        "/Users/funo/.config/nvim/lua",
+        "${3rd}/luv/library"
+    ],
+    "workspace.checkThirdParty": false
+}
