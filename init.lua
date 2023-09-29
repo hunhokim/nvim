@@ -30,6 +30,4 @@ require("lazy").setup({
 
 require("config.init")
 require("config.keymap")
-require("config.cmp-lspconfig")
 require("config.colorscheme")
-require("config.diagnostic")
