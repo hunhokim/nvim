@@ -1,0 +1,31 @@
+{
+	"coc.preferences.extensionUpdateCheck": "daily",
+	"diagnostic.refreshOnInsertMode": true,
+
+	"suggest.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 15,
+		"borderhighlight": "FloatBorder"
+	},
+	"hover.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 15,
+		"borderhighlight": "FloatBorder"
+	},
+	"diagnostic.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 15,
+		"borderhighlight": "FloatBorder"
+	},
+	"signature.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"winblend": 15,
+		"borderhighlight": "FloatBorder"
+	},
+
+	"sumneko-lua.enableNvimLuaDev": true
+}
