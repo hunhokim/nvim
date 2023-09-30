@@ -31,3 +31,4 @@ require("lazy").setup({
 require("config.init")
 require("config.keymap")
 require("config.colorscheme")
+require("config.nvim-cmp")
