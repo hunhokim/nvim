@@ -28,6 +28,6 @@ require("lazy").setup({
 	},
 })
 
-require("config.init")
 require("config.colorscheme")
 require("config.nvim-cmp")
+require("config.init")
