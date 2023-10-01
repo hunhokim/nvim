@@ -30,3 +30,4 @@ require("lazy").setup({
 
 require("config.init")
 require("config.nvim-cmp")
+require("config.lualine-config")
