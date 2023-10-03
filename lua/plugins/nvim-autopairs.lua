@@ -4,7 +4,10 @@ return {
 	config = function()
 		local remap = vim.api.nvim_set_keymap
 		local npairs = require('nvim-autopairs')
-		npairs.setup({ map_cr = false })
+		npairs.setup({ 
+			map_cr = false,
+			check_ts = true,
+		})
 
 		-- skip it, if you use another global object
 		_G.MUtils = {}
