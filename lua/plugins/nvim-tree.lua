@@ -7,8 +7,9 @@ return {
 	},
 	config = function()
 		require("nvim-tree").setup {
-			git = {
-				enable = false,
+			update_focused_file = {
+				enable = true,
+				update_root = true,
 			}
 		}
 
