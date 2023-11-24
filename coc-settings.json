@@ -1,31 +1,33 @@
 {
-	"coc.preferences.extensionUpdateCheck": "daily",
-	"diagnostic.refreshOnInsertMode": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "diagnostic.refreshOnInsertMode": true,
 
-	"suggest.floatConfig": {
-		"border": true,
-		"rounded": true,
-		"winblend": 15,
-		"borderhighlight": "FloatBorder"
-	},
-	"hover.floatConfig": {
-		"border": true,
-		"rounded": true,
-		"winblend": 15,
-		"borderhighlight": "FloatBorder"
-	},
-	"diagnostic.floatConfig": {
-		"border": true,
-		"rounded": true,
-		"winblend": 15,
-		"borderhighlight": "FloatBorder"
-	},
-	"signature.floatConfig": {
-		"border": true,
-		"rounded": true,
-		"winblend": 15,
-		"borderhighlight": "FloatBorder"
-	},
+  "suggest.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "winblend": 15,
+    "borderhighlight": "FloatBorder"
+  },
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "winblend": 15,
+    "borderhighlight": "FloatBorder"
+  },
+  "diagnostic.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "winblend": 15,
+    "borderhighlight": "FloatBorder"
+  },
+  "signature.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "winblend": 15,
+    "borderhighlight": "FloatBorder"
+  },
 
-	"sumneko-lua.enableNvimLuaDev": true
+  "sumneko-lua.enableNvimLuaDev": true,
+
+  "coc.preferences.formatOnSave": true
 }
