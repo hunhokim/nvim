@@ -29,5 +29,7 @@
 
   "sumneko-lua.enableNvimLuaDev": true,
 
-  "coc.preferences.formatOnSave": true
+  "coc.preferences.formatOnSave": true,
+
+  "solargraph.commandPath": "/opt/homebrew/lib/ruby/gems/3.3.0/bin/solargraph"
 }
