@@ -1,5 +1,4 @@
 {
-  "coc.preferences.extensionUpdateCheck": "daily",
   "diagnostic.refreshOnInsertMode": true,
 
   "suggest.floatConfig": {
@@ -29,7 +28,7 @@
 
   "sumneko-lua.enableNvimLuaDev": true,
 
-  "coc.preferences.formatOnSave": true,
+  "snippets.ultisnips.pythonPrompt": false,
 
-  "solargraph.commandPath": "/opt/homebrew/lib/ruby/gems/3.3.0/bin/solargraph"
+	"inlayHint.enable": false
 }
