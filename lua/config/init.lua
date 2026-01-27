@@ -2,7 +2,7 @@ vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.relativenumber = true
 
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard:append("unnamedplus")
 
 vim.api.nvim_create_user_command('Neovimconfig', 'edit ~/.config/nvim/init.lua', {})
 
