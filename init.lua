@@ -5,6 +5,7 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
+-- For Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -28,6 +29,7 @@ require("lazy").setup({
 	},
 })
 
+-- Etc
 vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.relativenumber = true
