@@ -5,6 +5,7 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
+-- For Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -28,6 +29,16 @@ require("lazy").setup({
 	},
 })
 
-require("config.init")
-require("config.lualine-config")
-require("config.colorscheme")
+-- Etc
+vim.opt.number = true
+vim.opt.cursorline = true
+vim.opt.relativenumber = true
+
+vim.opt.clipboard:append("unnamedplus")
+
+vim.api.nvim_create_user_command('Nvimconfig', 'edit ~/.config/nvim/init.lua', {})
+
+vim.keymap.set('n', '<Esc>', ':noh<CR>')
+vim.keymap.set('i', 'jk', '<Esc>')
+
+vim.cmd.colorscheme("nightfox")
