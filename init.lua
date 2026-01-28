@@ -34,7 +34,7 @@ vim.opt.relativenumber = true
 
 vim.opt.clipboard:append("unnamedplus")
 
-vim.api.nvim_create_user_command('Neovimconfig', 'edit ~/.config/nvim/init.lua', {})
+vim.api.nvim_create_user_command('Nvimconfig', 'edit ~/.config/nvim/init.lua', {})
 
 vim.keymap.set('n', '<Esc>', ':noh<CR>')
 vim.keymap.set('i', 'jk', '<Esc>')
