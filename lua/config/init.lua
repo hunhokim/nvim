@@ -8,3 +8,5 @@ vim.api.nvim_create_user_command('Neovimconfig', 'edit ~/.config/nvim/init.lua',
 
 vim.keymap.set('n', '<Esc>', ':noh<CR>')
 vim.keymap.set('i', 'jk', '<Esc>')
+
+vim.cmd.colorscheme("nightfox")

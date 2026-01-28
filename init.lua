@@ -30,4 +30,3 @@ require("lazy").setup({
 
 require("config.init")
 require("config.lualine-config")
-require("config.colorscheme")
