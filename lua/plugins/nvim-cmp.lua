@@ -18,6 +18,9 @@ return {
 					vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
 				end,
 			},
+			completion = {
+				completeopt = 'menu,menuone,noinsert'
+			},
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
