@@ -11,9 +11,6 @@ return {
 				enable = true,
 				update_root = true,
 			},
-			filters = {
-				git_ignored = false
-			}
 		}
 
 		local api = require("nvim-tree.api")
