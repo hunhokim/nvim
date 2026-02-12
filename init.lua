@@ -46,37 +46,44 @@ vim.keymap.set('i', 'jk', '<Esc>')
 
 vim.cmd.colorscheme("nightfox")
 
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 vim.schedule(function()
-	vim.opt.clipboard:append('unnamedplus')
-  -- Fix "waiting for osc52 response from terminal" message
-  -- https://github.com/neovim/neovim/issues/28611
+    vim.opt.clipboard:append('unnamedplus')
 
-  if vim.env.SSH_TTY ~= nil then
-    -- Set up clipboard for ssh
+    if vim.env.SSH_TTY ~= nil or vim.env.TMUX ~= nil then
+        -- Custom OSC 52 Copy function for SSH + Tmux
+        local function my_copy(_)
+            return function(lines)
+                local content = table.concat(lines, '\n')
+                -- Base64 encode the content
+                local base64 = vim.fn.system('base64 | tr -d "\n"', content)
+                local osc = string.format("\27]52;c;%s\7", base64)
+                -- If inside Tmux, wrap with passthrough escape codes
+                if vim.env.TMUX ~= nil then
+                    osc = string.format("\27Ptmux;\27%s\27\\", osc)
+                end
+                -- Write directly to stdout (console)
+                io.stdout:write(osc)
+                io.stdout:flush()
+            end
+        end
 
-    local function my_paste(_)
-      return function(_)
-        local content = vim.fn.getreg('"')
-        return vim.split(content, '\n')
-      end
+        local function my_paste(_)
+            return function(_)
+                local content = vim.fn.getreg('"')
+                return vim.split(content, '\n')
+            end
+        end
+
+        vim.g.clipboard = {
+            name = 'OSC 52 Tmux',
+            copy = {
+                ['+'] = my_copy('+'),
+                ['*'] = my_copy('*'),
+            },
+            paste = {
+                ['+'] = my_paste('+'),
+                ['*'] = my_paste('*'),
+            },
+        }
     end
-
-    vim.g.clipboard = {
-      name = 'OSC 52',
-      copy = {
-        ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-        ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-      },
-      paste = {
-        -- No OSC52 paste action since wezterm doesn't support it
-        -- Should still paste from nvim
-        ['+'] = my_paste('+'),
-        ['*'] = my_paste('*'),
-      },
-    }
-  end
 end)
