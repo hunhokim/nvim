@@ -26,6 +26,21 @@ return {
 					}
 				}
 			}
+
+      vim.lsp.config['rust_analyzer'] = {
+        settings = {
+          ['rust-analyzer'] = {
+            lru = {
+              capacity = 64,
+            },
+            cachePriming = {
+              enable = false,
+              numThreads = 1,
+            },
+            numThreads = 1,
+          },
+        },
+      }
 		end
 	}
 }
