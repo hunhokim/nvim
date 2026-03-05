@@ -34,6 +34,8 @@ vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.relativenumber = true
 
+vim.opt.clipboard:append("unnamedplus")
+
 vim.api.nvim_create_user_command('Nvimconfig', 'edit ~/.config/nvim/init.lua', {})
 
 vim.keymap.set('n', '<Esc>', ':noh<CR>')
@@ -42,43 +44,49 @@ vim.keymap.set('i', 'jk', '<Esc>')
 vim.cmd.colorscheme("nightfox")
 
 vim.schedule(function()
-    vim.opt.clipboard:append('unnamedplus')
+  vim.opt.clipboard:append('unnamedplus')
 
-    if vim.env.SSH_TTY ~= nil or vim.env.TMUX ~= nil then
-        -- Custom OSC 52 Copy function for SSH + Tmux
-        local function my_copy(_)
-            return function(lines)
-                local content = table.concat(lines, '\n')
-                -- Base64 encode the content
-                local base64 = vim.fn.system('base64 | tr -d "\n"', content)
-                local osc = string.format("\27]52;c;%s\7", base64)
-                -- If inside Tmux, wrap with passthrough escape codes
-                if vim.env.TMUX ~= nil then
-                    osc = string.format("\27Ptmux;\27%s\27\\", osc)
-                end
-                -- Write directly to stdout (console)
-                io.stdout:write(osc)
-                io.stdout:flush()
-            end
+  if vim.env.SSH_TTY ~= nil or vim.env.TMUX ~= nil then
+    -- Custom OSC 52 Copy function for SSH + Tmux
+    local function my_copy(_)
+      return function(lines)
+        local content = table.concat(lines, '\n')
+        -- 1. Use Neovim's built-in base64 if available (0.10+) or stick to system
+        -- System base64 is fine, but ensure it's clean
+        local base64 = vim.fn.system('base64 | tr -d "\n"', content)
+        -- 2. Build the OSC 52 string
+        local osc = string.format("\27]52;c;%s\7", base64)
+
+        -- 3. Wrap for Tmux
+        -- Note: Tmux has a limit on the length of Ptmux escape sequences.
+        -- We use \27\27 to escape the ESC character inside the wrap.
+        if vim.env.TMUX ~= nil then
+          osc = string.format("\27Ptmux;\27%s\27\\", osc:gsub("\27", "\27\27"))
         end
 
-        local function my_paste(_)
-            return function(_)
-                local content = vim.fn.getreg('"')
-                return vim.split(content, '\n')
-            end
-        end
-
-        vim.g.clipboard = {
-            name = 'OSC 52 Tmux',
-            copy = {
-                ['+'] = my_copy('+'),
-                ['*'] = my_copy('*'),
-            },
-            paste = {
-                ['+'] = my_paste('+'),
-                ['*'] = my_paste('*'),
-            },
-        }
+        -- 4. CRITICAL: Use nvim_chan_send to bypass Lua's io.stdout buffering
+        -- Channel 2 is usually stderr, which is more reliable for OOB sequences
+        vim.api.nvim_chan_send(vim.v.stderr, osc)
+      end
     end
+
+    local function my_paste(_)
+      return function(_)
+        local content = vim.fn.getreg('"')
+        return vim.split(content, '\n')
+      end
+    end
+
+    vim.g.clipboard = {
+      name = 'OSC 52 Tmux',
+      copy = {
+        ['+'] = my_copy('+'),
+        ['*'] = my_copy('*'),
+      },
+      paste = {
+        ['+'] = my_paste('+'),
+        ['*'] = my_paste('*'),
+      },
+    }
+  end
 end)
