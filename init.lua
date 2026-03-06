@@ -30,6 +30,11 @@ require("lazy").setup({
 })
 
 -- Etc
+vim.opt.tabstop = 4       -- A TAB character will appear as 4 spaces on screen
+vim.opt.shiftwidth = 4    -- Amount of spaces used for auto-indentation (e.g., when pressing '>>')
+vim.opt.softtabstop = 4   -- Number of spaces a <Tab> counts for; useful for smart backspacing
+vim.opt.expandtab = true  -- Pressing the TAB key will insert spaces instead of a TAB character
+
 vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.relativenumber = true
